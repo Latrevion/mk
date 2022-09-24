@@ -1,0 +1,9 @@
+{
+  "name": "zhansan",
+  "age": 18,
+  "hobby": ["足球","乒乓球"],
+  "family":{
+    "father": "zhanlaoda",
+    "mother": "lisi"
+  }
+}

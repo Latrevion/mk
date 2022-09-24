@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fetch</title>
+</head>
+<body>
+<script>
+  const url = 'https://mock.apifox.cn/m2/1646525-0-default/40660181?word=js'
+  const fd = new FormData()
+  fd.append('name','luke')
+  fetch(url,{
+    method:'post',
+    body:fd,
+    // body:null
+    // body:"name=luke&age=18",
+    // body:JSON.stringify({username:'luke'}),
+    // headers:{
+    //   'Content-Type':'application/json'
+    // }
+    // headers:{
+    //   'Content-Type':'application/x-www-form-urlencoded'
+    // }
+    mode:'cors',
+    credentials:'include'
+
+  })
+    .then(response => {
+      console.log(response)
+      if (response.ok){
+        return response.json()
+      }else {
+        throw new Error(`HTTP CODE 异常${response.status}`)
+      }
+    }).then(data=>{
+    console.log(data)
+  })
+    .catch(err => {
+      console.log(err)
+    })
+</script>
+</body>
+</html>

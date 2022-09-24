@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索提示</title>
+</head>
+<body>
+<input id="search" type="text">
+<ul id="result"></ul>
+<script type="module">
+  import {getJSON} from "./index.js"
+
+
+  let timer = null
+
+  const searchInput = document.getElementById("search")
+  const resultList = document.getElementById("result")
+
+  const handleInput = () => {
+    if (searchInput.value.trim() !== "") {
+      getJSON(`${url}${searchInput.value}`).then(response => {
+        console.log(response)
+
+        let html = ""
+        for (let item of response.data) {
+          html += `<li>${item.word}</li>`
+        }
+        resultList.innerHTML = html
+        resultList.style.display = ""
+
+      }).catch(e => {
+        console.log(e)
+      })
+    } else {
+      resultList.innerHTML = ""
+      resultList.style.display = "none"
+
+    }
+  }
+
+  const url = "https://mock.apifox.cn/m2/1646525-0-default/40660181?word="
+  searchInput.addEventListener("input", () => {
+    // handleInput()
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(handleInput, 500)
+
+  })
+
+</script>
+</body>
+</html>

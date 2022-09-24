@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax-formData</title>
+</head>
+<body>
+<form
+  id="login"
+  action="https://mock.apifox.cn/m2/1646525-0-default/40660181?word=js"
+
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <input type="text" name="username" placeholder="用户名"/>
+  <input type="password" name="password" placeholder="密码"/>
+  <input id="submit" type="submit" value="登录"/>
+</form>
+
+<script>
+  const url = "https://mock.apifox.cn/m2/1646525-0-default/40660181?word=js"
+  const login = document.getElementById("login")
+  const {username, password} = login
+  const btn = document.getElementById("submit")
+  btn.addEventListener("click", (e) => {
+      e.preventDefault()
+
+      const xhr = new XMLHttpRequest()
+      xhr.addEventListener(
+        "load",
+        () => {
+          if (
+            (xhr.status >= 200 && xhr.status < 300) ||
+            xhr.status === 304
+          ) {
+            console.log(xhr.response)
+          }
+        },
+        false
+      )
+
+      xhr.open("POST", url, true)
+
+      // const data =`username=${username.value}&password=${password.value}`
+    const data = new FormData(login)
+    data.append('age',18)
+    // console.log(data)
+    // for (const item of data){
+    //   console.log(item)
+    // }
+
+    // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+      xhr.send(data)
+    }
+  )
+
+</script>
+</body>
+</html>

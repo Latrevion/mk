@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装ajax</title>
+</head>
+<body>
+
+<script type="module">
+  import {ajax, get, getJSON, post} from "./index.js"
+
+  const url = "https://mock.apifox.cn/m2/1646525-0-default/40660181?word=js"
+
+  const xhr = ajax(url, {
+    method: "POST", params: {username: "alex"},
+    data: {age: 18}, responseType: "json", success(response) {
+      console.log(response)
+    },
+    httpCodeError(err) {
+      console.log("http code error", err)
+    }
+    ,
+    error(xhr) {
+      console.log("error", xhr)
+    },
+
+    abort(xhr) {
+      console.log("abort", xhr)
+    },
+    timeout(xhr) {
+      console.log("timeout", xhr)
+    }
+
+  })
+</script>
+</body>
+</html>

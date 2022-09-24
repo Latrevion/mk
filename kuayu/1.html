@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跨域</title>
+</head>
+<body>
+<script>
+// cors是后端配置 前端唯一能做的就是和后端沟通，配置跨域cors
+  // const url =`./index.html`
+  // const url =`https://www.baidu.com`
+  const url =`https://mock.apifox.cn/m2/1646525-0-default/40660181?word=js`
+  const xhr = new XMLHttpRequest()
+  xhr.onreadystatechange=()=>{
+      if(xhr.readyState!==4)return;
+
+      if((xhr.status>=200&&xhr.status<300)||xhr.status===304){
+       console.log (  xhr.responseText)
+
+      }
+  }
+
+  xhr.open('GET',url,true)
+  xhr.send(null)
+
+</script>
+</body>
+</html>

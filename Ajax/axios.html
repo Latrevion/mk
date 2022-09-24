@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios</title>
+</head>
+<body>
+<script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js"></script>
+<script>
+  // console.log(axios)
+  const url = "https://mock.apifox.cn/m2/1646525-0-default/40660181?word=js"
+  // axios(url, {
+  //   method: "post",
+  //   headers: {
+  //     // "Content-Type": "application/x-www-form-urlencoded"
+  //     "Content-Type": "application/json"
+  //   },
+  //   params: {username: "luke"},
+  //   data: {age: 18, sex: "male"}
+  // })
+  //   .then(response =>{
+  //     console.log(response)
+  //   })
+  //   .catch(err=> console.log(err))
+
+  // axios.get(url, {
+  //   params: {
+  //     username: "luke"
+  //   }
+  // }).then(response => console.log(response))
+
+  // axios.post(url,'name=luke&age=18')
+  //   .then(response => {
+  //   console.log(response)
+  // })
+  //   .catch(err => {
+  //     console.log(err)})
+
+
+  axios.post(url,{
+    name:'luke'
+  })
+    .then(response => {
+    console.log(response)
+  })
+    .catch(err => {
+      console.log(err)})
+
+
+
+</script>
+</body>
+</html>

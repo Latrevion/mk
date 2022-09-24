@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise-all</title>
+</head>
+<body>
+<script>
+  const delay = ms => {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms)
+    })
+  }
+
+  const p1 = delay(1000).then(() => {
+    console.log("p1 success!")
+    return "p1"
+  })
+
+  const p2 = delay(2000).then(() => {
+    console.log("p2 success!")
+    return "p2"
+  })
+
+  const p = Promise.all([p1, p2])
+  p.then((data) => {
+    console.log(data)
+  }, (err) => {
+    console.log(err)
+  })
+
+</script>
+</body>
+</html>

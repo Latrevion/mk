@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie 封装</title>
+</head>
+<body>
+<button id="cn">cn</button>
+<button id="en">en</button>
+<script type="module">
+  // import {set, get, remove} from "./cookie.js"
+  import {set} from "./cookie.js"
+  const cnBtn = document.getElementById('cn')
+  const enBtn = document.getElementById('en')
+
+  cnBtn.addEventListener('click',()=>{
+    set('language','cn', {maxAge:30*24*3600})
+    window.location ='./4.html'
+  })
+
+
+  enBtn.addEventListener('click',()=>{
+    set('language','en', {maxAge:30*24*3600})
+    window.location ='./4.html'
+  })
+
+
+
+
+
+  // set("username", "alex")
+  // set("username", "zs")
+  // set("age", 18)
+  // set("用户名", "zhansan")
+  //
+  // set("sex", "male", {
+  //   maxAge: 30 * 24 * 3600
+  // })
+  // remove('username')
+  // console.log(get("username"))
+  // console.log(get("age"))
+  // console.log(get("用户名"))
+  // console.log(get("sex"))
+
+</script>
+</body>
+</html>

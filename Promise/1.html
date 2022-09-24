@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise</title>
+</head>
+<body>
+<script>
+
+  // // const  p =new Promise(()=>{})
+  //
+  // let a = Math.random()
+  // const p = new Promise((resolve, reject) => {
+  //   if (a <0.7) {
+  //     resolve('success!!!')
+  //   } else {
+  //     reject(new Error('err'))
+  //   }
+  // })
+  // // console.log(p)
+  //
+  //
+  // p.then((data) => {
+  //   console.log("success",data)
+  // }, (err) => {
+  //   console.log("error",err)
+  // })
+
+
+  const p = new Promise((resolve, reject) => {
+    reject()
+    // resolve()
+  })
+
+  p.then(
+    () => {
+      console.log("success")
+    },
+    () => {
+      console.log("err")
+
+      // return 123
+      // return new Promise(resolve => {
+      //   resolve(123)
+      // })
+
+      return new Promise((resolve, reject) => {
+        resolve(123)
+      })
+    }
+  )
+    .then(
+      (data) => {
+        console.log("success2", data)
+        // return undefined
+        // return new Promise(resolve => {resolve(1)})
+        return new Promise((resolve,reject)=>{
+          reject('err123')
+        })
+      },
+      (e) => {console.log("err2", e)}
+    )
+    .then(
+      data => {
+        console.log("success3", data)
+      },
+      err => {
+        console.log("err3", err)
+      }
+    )
+
+
+</script>
+</body>
+</html>
