@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实例属性、静态方法和静态属性</title>
+</head>
+<body>
+
+<script>
+  // class Person {
+  //   age = 0
+  //   sex = "male"
+  //   getSex = function () {
+  //     return this.sex
+  //   }
+  //
+  //   constructor(name, sex) {
+  //     this.name = name
+  //     this.sex = sex
+  //   }
+  // }
+
+
+  class Person{
+    constructor(name,sex) {
+      this.name =name
+      this.sex =sex
+    }
+
+
+    speak(){
+      console.log('speak')
+    }
+
+    static speak(){
+      console.log('人类-speak')
+    }
+    static getApo(){
+      return '1.0'
+    }
+
+  }
+
+  const p = new Person('alex')
+  p.speak()
+
+  Person.speak()
+  Person.getApo()
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class是什么</title>
+</head>
+<body>
+<script>
+  //基本用法
+  class Person {
+    constructor(name, age) {
+      this.name = name
+      this.age = age
+
+    }
+    //各实例对象共享的方法
+    speak(){
+      console.log("speak")
+    }
+
+  }
+
+  // const zs = new Person()
+  // console.log(zs)
+  // console.log(zs.name)
+  // console.log(zs.age)
+
+  function Person(name,age) {
+    this.name =name
+    this.age =age
+  }
+
+  Person.prototype.speak =function (){
+
+  }
+</script>
+</body>
+</html>

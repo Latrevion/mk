@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class两种定义形式</title>
+</head>
+<body>
+<script>
+  // 1 声明形式
+  // class Person{
+  //   constructor(name,age){
+  //
+  //   }
+  //
+  //   speak(){}
+  // }
+
+  // 2.表达式形式
+  // function Person(){}
+  // const Person =function () {
+  //
+  // }
+  // const Person =class {
+  //   constructor() {
+  //     console.log("constructor")
+  //   }
+  //   speak(){}
+  // }
+  //
+  // new Person()
+
+  // 立即执行函数
+  // (function () {
+  //   console.log('func')
+  // })()
+
+  //立即执行类
+  new (class {
+    constructor() {
+      console.log("class")
+
+    }
+  })()
+
+</script>
+</body>
+</html>

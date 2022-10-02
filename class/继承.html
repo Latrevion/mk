@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>继承</title>
+</head>
+<body>
+<script>
+  class Person{
+    constructor(name,sex){
+      this.name = name
+      this.sex =sex
+      //这里的方法每个实例都有单独一份
+      this.say =function () {
+        console.log("say")
+      }
+    }
+
+    speak(){
+      console.log("speak")
+    }
+
+    static speak(){
+      console.log('static speak')
+    }
+  }
+
+  Person.version ='1.0'
+
+  class Programmer extends Person{
+    constructor(name,sex,feature) {
+      super(name, sex)
+      this.feature =feature
+    }
+
+    speak(){
+      console.log("Programmer-speak")
+    }
+
+    static speak(){
+      console.log('programmer-static speak')
+    }
+  }
+
+
+  Programmer.version ='2.0'
+  const p = new Programmer('zs','male','秃头')
+  console.log(p.name)
+  console.log(p.sex)
+  console.log(p.feature)
+  p.say()
+  p.speak()
+  Programmer.speak()
+  console.log(Programmer.version)
+
+
+</script>
+</body>
+</html>

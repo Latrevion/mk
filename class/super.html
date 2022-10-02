@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>super</title>
+</head>
+<body>
+<script>
+  class Person {
+    constructor(name) {
+      this.name =name
+    }
+    speak(){
+      console.log('speak')
+    }
+
+    static speak(){
+      console.log('Person speak')
+    }
+  }
+
+
+  class Programmer extends Person{
+    constructor(name) {
+      super(name)
+
+      // super.speak()
+    }
+
+    speak() {
+      super.speak()
+      console.log("Programmer speak")
+    }
+
+    static speak(){
+      super.speak()
+      console.log('Programmer speak')
+    }
+  }
+
+  // const p = new Programmer()
+  Programmer.speak()
+
+
+</script>
+</body>
+</html>

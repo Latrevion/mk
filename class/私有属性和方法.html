@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私有属性和方法</title>
+</head>
+<body>
+<script>
+
+  // class Person{
+  // constructor(name) {
+  //   this.name = name
+  // }
+  //
+  // speak(){
+  //   console.log('speak')
+  // }
+  //
+  // getName(){
+  //   return this.name
+  // }
+  //
+  //
+  // }
+  //
+  //
+  // const p =new Person('luke')
+  // console.log(p.name)
+  // p.speak()
+
+
+  //2.1模拟私有属性和方法
+  // class Person{
+  //   constructor(name) {
+  //     this._name = name
+  //   }
+  //
+  //   speak(){
+  //     console.log("speak")
+  //   }
+  //
+  //   getName(){
+  //     return this._name
+  //   }
+  // }
+  //
+  // const p =new Person('luke')
+
+  //2.2模拟私有属性和方法
+  (function () {
+
+    let name = ""
+
+    class Person {
+      constructor(username) {
+        name = username
+      }
+
+      speak() {
+        console.log("speak")
+      }
+
+      getName() {
+        return name
+      }
+    }
+
+    window.Person = Person
+
+  })();
+//使用立即执行函数要有分号
+
+  (function () {
+    const p = new Person("luke")
+    console.log(p.name)
+    console.log(p.getName())
+  })();
+
+
+</script>
+</body>
+</html>
